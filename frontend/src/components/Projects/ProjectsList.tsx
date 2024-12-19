@@ -47,7 +47,7 @@ export const ProjectsList = () => {
 							key={rowIdx}
 							className="grid grid-cols-2 gap-x-4 px-4 py-12 bg-white "
 						>
-							<Carousel>
+							<Carousel className="flex flex-col justify-center">
 								<CarouselContent className="">
 									{project.imageUrls.map((card, idx) => (
 										<CarouselItem key={idx} className="">
@@ -65,7 +65,7 @@ export const ProjectsList = () => {
 															alt="학습 자료 썸네일"
 															width={400}
 															height={180}
-															className="object-cover w-full h-full rounded-t-md"
+															className="object-cover w-full h-full rounded-sm"
 														/>
 														{project.isVertical && (
 															<>
