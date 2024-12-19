@@ -5,8 +5,8 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
+	CarouselPointerProvider,
+	CarouselPointer,
 } from "@/components/ui/carousel";
 
 export const StudyMaterials = () => {
@@ -18,13 +18,13 @@ export const StudyMaterials = () => {
 			url: "https://velog.io/@jasmine0714/AWS-ALB",
 		},
 		{
-			id: 0,
+			id: 1,
 			title: "[git hook] pre-commit 검사단계에서 lint 검사 자동화",
 			thumbnailImg: images.thumbnail,
 			url: "https://velog.io/@jasmine0714/AWS-ALB",
 		},
 		{
-			id: 0,
+			id: 2,
 			title: "[git hook] pre-commit 검사단계에서 lint 검사 자동화",
 			thumbnailImg: images.thumbnail,
 			url: "https://velog.io/@jasmine0714/AWS-ALB",
@@ -34,8 +34,8 @@ export const StudyMaterials = () => {
 		<section>
 			<Carousel className="w-full max-w-xs">
 				<CarouselContent>
-					{studyMaterialCards.map((card, index) => (
-						<CarouselItem key={index}>
+					{studyMaterialCards.map((card) => (
+						<CarouselItem key={card.id}>
 							<div className="">
 								<Card>
 									<CardContent className="flex flex-col items-center justify-center">
@@ -57,6 +57,15 @@ export const StudyMaterials = () => {
 						</CarouselItem>
 					))}
 				</CarouselContent>
+				<CarouselPointerProvider>
+					{studyMaterialCards.map((material, idx) => {
+						return (
+							<li key={material.id}>
+								<CarouselPointer targetIdx={idx} />
+							</li>
+						);
+					})}
+				</CarouselPointerProvider>
 			</Carousel>
 		</section>
 	);
