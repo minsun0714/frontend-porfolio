@@ -267,7 +267,7 @@ const CarouselNext = React.forwardRef<
 });
 CarouselNext.displayName = "CarouselNext";
 
-export const CarouselButtonContainer = React.forwardRef<
+const CarouselIndicatorContainer = React.forwardRef<
 	HTMLDivElement,
 	{ children: React.ReactNode }
 >(({ children }, ref) => {
@@ -278,9 +278,9 @@ export const CarouselButtonContainer = React.forwardRef<
 	);
 });
 
-CarouselButtonContainer.displayName = "CarouselButtonContainer";
+CarouselIndicatorContainer.displayName = "CarouselIndicatorContainer";
 
-const CarouselButton = React.forwardRef<
+const CarouselIndicator = React.forwardRef<
 	HTMLButtonElement,
 	{ targetIdx: number } & React.ComponentProps<"button">
 >(({ targetIdx, ...props }, ref) => {
@@ -300,9 +300,9 @@ const CarouselButton = React.forwardRef<
 	);
 });
 
-CarouselButton.displayName = "CarouselButton";
+CarouselIndicator.displayName = "CarouselIndicator";
 
-export default CarouselButton;
+export default CarouselIndicator;
 
 export {
 	type CarouselApi,
@@ -311,5 +311,6 @@ export {
 	CarouselItem,
 	CarouselPrevious,
 	CarouselNext,
-	CarouselButton,
+	CarouselIndicator,
+  CarouselIndicatorContainer
 };
