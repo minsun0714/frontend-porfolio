@@ -1,4 +1,5 @@
 import { FaLaptopCode } from "react-icons/fa6";
+import { Badge } from "@/components/ui/badge";
 
 export const SkillsList = () => {
 	const skillsList = [
@@ -40,17 +41,21 @@ export const SkillsList = () => {
 	];
 	return (
 		<section>
-			<ul>
+			<ul className="max-w-1/4">
 				{skillsList.map((skills, rowIdx) => {
 					return (
-						<li key={rowIdx}>
-							<div>
+						<li key={rowIdx} className="grid grid-cols-2">
+							<div className="flex flex-row items-center gap-2">
 								<FaLaptopCode />
 								<h2>{skills.title}</h2>
 							</div>
-							<ul>
+							<ul className="flex flex-row gap-4">
 								{skills.list.map((skill) => {
-									return <li key={skill.id}>{skill.name}</li>;
+									return (
+										<li key={skill.id} className="relative cursor-pointer">
+											<Badge variant={"secondary"}>{skill.name}</Badge>
+										</li>
+									);
 								})}
 							</ul>
 						</li>
