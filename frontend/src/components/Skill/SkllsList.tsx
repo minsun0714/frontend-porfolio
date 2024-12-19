@@ -41,7 +41,7 @@ export const SkillsList = () => {
 	];
 	return (
 		<section>
-			<ul className="max-w-1/4">
+			<ul>
 				{skillsList.map((skills, rowIdx) => {
 					return (
 						<li key={rowIdx} className="grid grid-cols-2">

@@ -169,7 +169,7 @@ const CarouselContent = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-	const { carouselRef, orientation } = useCarousel();
+	const { carouselRef } = useCarousel();
 
 	return (
 		<div ref={carouselRef} className="overflow-hidden">
@@ -177,7 +177,6 @@ const CarouselContent = React.forwardRef<
 				ref={ref}
 				className={cn(
 					"flex",
-					orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
 					className,
 				)}
 				{...props}
@@ -191,16 +190,14 @@ const CarouselItem = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-	const { orientation } = useCarousel();
 
 	return (
 		<div
 			ref={ref}
-			role="group"
+			role=""
 			aria-roledescription="slide"
 			className={cn(
 				"min-w-0 shrink-0 grow-0 basis-full",
-				orientation === "horizontal" ? "pl-4" : "pt-4",
 				className,
 			)}
 			{...props}
@@ -216,7 +213,7 @@ const CarouselPrevious = React.forwardRef<
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
 	return (
-		<Button
+		canScrollPrev && <Button
 			ref={ref}
 			variant={variant}
 			size={size}
@@ -227,6 +224,7 @@ const CarouselPrevious = React.forwardRef<
 					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
 				className,
 			)}
+			aria-disabled
 			disabled={!canScrollPrev}
 			onClick={scrollPrev}
 			{...props}
@@ -245,7 +243,7 @@ const CarouselNext = React.forwardRef<
 	const { orientation, scrollNext, canScrollNext } = useCarousel();
 
 	return (
-		<Button
+		canScrollNext &&<Button
 			ref={ref}
 			variant={variant}
 			size={size}
@@ -292,7 +290,7 @@ const CarouselIndicator = React.forwardRef<
 			onClick={() => scrollTo(currentIdx, targetIdx)}
 			{...props}
 			className={cn(
-				"flex items-center w-2 h-2 border border-white rounded-full bg-white",
+				"flex items-center w-4 h-4 border border-gray-400 rounded-full bg-white",
 				currentIdx === targetIdx &&
 					"h-6 w-6 bg-blue-600 border border-blue-500",
 			)}
@@ -312,5 +310,5 @@ export {
 	CarouselPrevious,
 	CarouselNext,
 	CarouselIndicator,
-  CarouselIndicatorContainer
+	CarouselIndicatorContainer,
 };
