@@ -23,8 +23,10 @@ type CarouselContextProps = {
 	api: ReturnType<typeof useEmblaCarousel>[1];
 	scrollPrev: () => void;
 	scrollNext: () => void;
+	scrollTo: (cur: number, targetIdx: number) => void;
 	canScrollPrev: boolean;
 	canScrollNext: boolean;
+	currentIdx: number;
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -64,6 +66,7 @@ const Carousel = React.forwardRef<
 		);
 		const [canScrollPrev, setCanScrollPrev] = React.useState(false);
 		const [canScrollNext, setCanScrollNext] = React.useState(false);
+		const [currentIdx, setCurrentIdx] = React.useState(0); // 현재 활성화된 인덱스 추가
 
 		const onSelect = React.useCallback((api: CarouselApi) => {
 			if (!api) {
@@ -72,6 +75,7 @@ const Carousel = React.forwardRef<
 
 			setCanScrollPrev(api.canScrollPrev());
 			setCanScrollNext(api.canScrollNext());
+			setCurrentIdx(api.selectedScrollSnap());
 		}, []);
 
 		const scrollPrev = React.useCallback(() => {
@@ -81,6 +85,18 @@ const Carousel = React.forwardRef<
 		const scrollNext = React.useCallback(() => {
 			api?.scrollNext();
 		}, [api]);
+
+		const scrollTo = (cur: number, targetIdx: number) => {
+			if (currentIdx < targetIdx) {
+				if (cur >= targetIdx) return;
+				scrollNext();
+				scrollTo(cur + 1, targetIdx);
+			} else {
+				if (cur <= targetIdx) return;
+				scrollPrev();
+				scrollTo(cur - 1, targetIdx);
+			}
+		};
 
 		const handleKeyDown = React.useCallback(
 			(event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -127,8 +143,10 @@ const Carousel = React.forwardRef<
 						orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
 					scrollPrev,
 					scrollNext,
+					scrollTo,
 					canScrollPrev,
 					canScrollNext,
+					currentIdx,
 				}}
 			>
 				<div
@@ -249,61 +267,25 @@ const CarouselNext = React.forwardRef<
 });
 CarouselNext.displayName = "CarouselNext";
 
-type CarouselContextType = {
-	currentIdx: number;
-	scrollTo: (cur: number, targetIdx: number) => void;
-};
-
-const CarouselPointerContext = React.createContext<
-	CarouselContextType | undefined
->(undefined);
-
-export const CarouselPointerProvider = React.forwardRef<
+export const CarouselButtonContainer = React.forwardRef<
 	HTMLDivElement,
 	{ children: React.ReactNode }
 >(({ children }, ref) => {
-	const { scrollNext, scrollPrev } = useCarousel();
-	const [currentIdx, setCurrentIdx] = React.useState(0);
-
-	const scrollTo = (cur: number, targetIdx: number) => {
-		if (currentIdx < targetIdx) {
-			if (cur >= targetIdx) return;
-			scrollNext();
-			scrollTo(cur + 1, targetIdx);
-		} else {
-			if (cur <= targetIdx) return;
-			scrollPrev();
-			scrollTo(cur - 1, targetIdx);
-		}
-		setCurrentIdx(targetIdx);
-	};
-
 	return (
-		<CarouselPointerContext.Provider value={{ currentIdx, scrollTo }}>
-			<div ref={ref} className="p-6 flex justify-center items-center gap-x-4">
-				{children}
-			</div>
-		</CarouselPointerContext.Provider>
+		<div ref={ref} className="p-6 flex justify-center items-center gap-x-4">
+			{children}
+		</div>
 	);
 });
 
-CarouselPointerProvider.displayName = "CarouselPointerProvider";
+CarouselButtonContainer.displayName = "CarouselButtonContainer";
 
-export const useCarouselPointer = () => {
-	const context = React.useContext(CarouselPointerContext);
-	if (!context) {
-		throw new Error(
-			"useCarouselPointer must be used within a CarouselPointerProvider",
-		);
-	}
-	return context;
-};
-
-const CarouselPointer = React.forwardRef<
+const CarouselButton = React.forwardRef<
 	HTMLButtonElement,
 	{ targetIdx: number } & React.ComponentProps<"button">
 >(({ targetIdx, ...props }, ref) => {
-	const { currentIdx, scrollTo } = useCarouselPointer();
+	const { currentIdx, scrollTo } = useCarousel();
+
 	return (
 		<button
 			ref={ref}
@@ -318,9 +300,9 @@ const CarouselPointer = React.forwardRef<
 	);
 });
 
-CarouselPointer.displayName = "CarouselPointer";
+CarouselButton.displayName = "CarouselButton";
 
-export default CarouselPointer;
+export default CarouselButton;
 
 export {
 	type CarouselApi,
@@ -329,5 +311,5 @@ export {
 	CarouselItem,
 	CarouselPrevious,
 	CarouselNext,
-	CarouselPointer,
+	CarouselButton,
 };

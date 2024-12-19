@@ -5,8 +5,8 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselPointerProvider,
-	CarouselPointer,
+	CarouselButton,
+	CarouselButtonContainer,
 } from "@/components/ui/carousel";
 
 export const StudyMaterials = () => {
@@ -57,15 +57,16 @@ export const StudyMaterials = () => {
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPointerProvider>
+
+				<CarouselButtonContainer>
 					{studyMaterialCards.map((material, idx) => {
 						return (
 							<li key={material.id}>
-								<CarouselPointer targetIdx={idx} />
+								<CarouselButton targetIdx={idx} />
 							</li>
 						);
 					})}
-				</CarouselPointerProvider>
+				</CarouselButtonContainer>
 			</Carousel>
 		</section>
 	);
