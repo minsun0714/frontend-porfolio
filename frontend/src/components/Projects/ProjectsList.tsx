@@ -40,13 +40,10 @@ export const ProjectsList = () => {
 	];
 	return (
 		<section>
-			<ul className="text-black">
+			<ul className="text-black space-y-10">
 				{projectList.map((project, rowIdx) => {
 					return (
-						<div
-							key={rowIdx}
-							className="grid grid-cols-2 gap-x-4 px-4 py-12 bg-white "
-						>
+						<div key={rowIdx} className="grid grid-cols-2 p-3 bg-white shadow-md">
 							<Carousel className="flex flex-col justify-center">
 								<CarouselContent className="">
 									{project.imageUrls.map((card, idx) => (
@@ -63,8 +60,8 @@ export const ProjectsList = () => {
 														<Image
 															src={card}
 															alt="학습 자료 썸네일"
-															width={400}
-															height={180}
+															width={300}
+															height={400}
 															className="object-cover w-full h-full rounded-sm"
 														/>
 														{project.isVertical && (
@@ -91,22 +88,22 @@ export const ProjectsList = () => {
 									</CarouselIndicatorContainer>
 								)}
 							</Carousel>
-							<div className="p-12 flex flex-col items-center border-8 border-slate-200">
-								<div>
-									<h2>{project.title}</h2>
-									<h3>
+							<div className="p-8 flex flex-col border-8 border-slate-200">
+								<div className="border-b-2 py-4">
+									<h2 className="text-2xl font-bold">{project.title}</h2>
+									<h3 className="text-slate-400">
 										{project.date} · {project.peerCount}인 프로젝트
 										{project.isLeader && " 팀장"}
 									</h3>
 								</div>
-								<div>
-									<p>{project.description}</p>
-									<p className="border-l-4 border-black p-3">
+								<div className="py-4">
+									<p className="py-4">{project.description}</p>
+									<p className="border-l-4 border-black p-4">
 										{project.skills.join(", ")}
 									</p>
 								</div>
-								<div>
-									<Button>Detail</Button>
+								<div className="w-full flex justify-end">
+									<Button className="">Detail</Button>
 								</div>
 							</div>
 						</div>

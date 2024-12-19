@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
 	return (
 		<div
-			className={`${geistSans.variable} ${geistMono.variable} border border-blue-400 flex flex-col justify-center items-center min-h-screen`}
+			className={`${geistSans.variable} ${geistMono.variable} flex flex-col justify-center items-center min-h-screen`}
 		>
 			<Main />
 			<SkillsView />
