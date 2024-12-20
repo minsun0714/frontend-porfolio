@@ -76,12 +76,12 @@ export const EducationList = () => {
 									{education.startDate}-{education.endDate}
 								</h3>
 							</div>
-							<ul className="grid grid-cols-1 tablet:grid-cols-3 gap-12">
+							<ul className="grid grid-cols-1 laptop:grid-cols-3 gap-12 p-24 laptop:max-w-[1000px] laptop:p-24">
 								{education.list.map((achievement) => {
 									return (
 										<li
 											key={achievement.id}
-											className="grid grid-rows-2 text-xl max-w-64 gap-12"
+											className="grid grid-rows-2  tablet:grid-rows-1 tablet:grid-cols-2 laptop:grid-rows-2 laptop:grid-cols-1 text-xl max-w-xl gap-4 tablet:gap-12"
 										>
 											<div>
 												<achievement.icon size={200} color="black" />
