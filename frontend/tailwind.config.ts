@@ -58,10 +58,9 @@ export default {
 			},
 		},
 		screens: {
-			mobile: "320ox",
+			mobile: "320px",
 			tablet: "640px",
 			laptop: "1024px",
-			desktop: "1280px",
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
