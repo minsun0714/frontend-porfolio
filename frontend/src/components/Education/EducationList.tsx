@@ -76,7 +76,7 @@ export const EducationList = () => {
 									{education.startDate}-{education.endDate}
 								</h3>
 							</div>
-							<ul className="grid grid-cols-3 gap-12">
+							<ul className="grid grid-cols-1 tablet:grid-cols-3 gap-12">
 								{education.list.map((achievement) => {
 									return (
 										<li
