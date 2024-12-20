@@ -41,15 +41,15 @@ export const SkillsList = () => {
 	];
 	return (
 		<section>
-			<ul>
+			<ul className="w-[420px] p-12">
 				{skillsList.map((skills, rowIdx) => {
 					return (
-						<li key={rowIdx} className="grid grid-cols-2">
+						<li key={rowIdx} className="grid grid-rows-2 laptop:grid-cols-2">
 							<div className="flex flex-row items-center gap-2">
 								<FaLaptopCode />
 								<h2>{skills.title}</h2>
 							</div>
-							<ul className="flex flex-row gap-4">
+							<ul className="flex flex-row flex-wrap gap-2">
 								{skills.list.map((skill) => {
 									return (
 										<li key={skill.id} className="relative cursor-pointer">
