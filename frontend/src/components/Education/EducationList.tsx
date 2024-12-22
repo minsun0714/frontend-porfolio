@@ -81,12 +81,12 @@ export const EducationList = () => {
 									return (
 										<li
 											key={achievement.id}
-											className="grid grid-rows-2  tablet:grid-rows-1 tablet:grid-cols-2 laptop:grid-rows-2 laptop:grid-cols-1 text-xl max-w-xl gap-4 tablet:gap-12"
+											className="grid grid-rows-2 tablet:grid-rows-1 tablet:grid-cols-2 laptop:grid-rows-2 laptop:grid-cols-1 text-xl max-w-xl gap-4 tablet:gap-12"
 										>
-											<div>
+											<div className="flex justify-center">
 												<achievement.icon size={200} color="black" />
 											</div>
-											<div className="flex flex-col gap-y-5">
+											<div className="flex flex-col items-start gap-y-5">
 												<h3 className="font-medium">{achievement.name}</h3>
 												<p className="text-left text-base">
 													{achievement.description}
