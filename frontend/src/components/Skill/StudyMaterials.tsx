@@ -10,15 +10,13 @@ import {
 import { useSkillStore } from "@/store/skills";
 
 export const StudyMaterials = () => {
-	const { skillsList, id } = useSkillStore();
-	const studyMaterialCards = skillsList
-		.flatMap((skill) => skill.list)
-		.find((card) => card.id === id)?.materialUrlList;
+	const { id, studyMaterialCards } = useSkillStore();
+
 	return (
 		<section>
 			<Carousel className="w-full max-w-xs">
 				<CarouselContent>
-					{studyMaterialCards?.map((card, idx) => (
+					{studyMaterialCards()?.map((card, idx) => (
 						<CarouselItem key={id + idx}>
 							<div className="">
 								<Card>
@@ -43,7 +41,7 @@ export const StudyMaterials = () => {
 				</CarouselContent>
 
 				<CarouselIndicatorContainer>
-					{studyMaterialCards?.map((_, idx) => {
+					{studyMaterialCards()?.map((_, idx) => {
 						return (
 							<li key={id + idx}>
 								<CarouselIndicator targetIdx={idx} />

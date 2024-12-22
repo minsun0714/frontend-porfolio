@@ -3,7 +3,7 @@ type SkillName =
 	| "FE 프레임워크"
 	| "서버 데이터 동기화"
 	| "전역 상태 관리";
-type MaterialCard = {
+export type MaterialCard = {
 	title: string;
 	thumbnailImg: string;
 	url: string;
