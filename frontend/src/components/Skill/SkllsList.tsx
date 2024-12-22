@@ -1,44 +1,23 @@
+import { useEffect, useState } from "react";
 import { FaLaptopCode } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
+import { Skills } from "@/models/skills";
 
 export const SkillsList = () => {
-	const skillsList = [
-		{
-			title: "언어",
-			list: [
-				{
-					id: "0",
-					name: "Javascript",
-					bgColor: "yellow",
-				},
-				{
-					id: "1",
-					name: "Typescript",
-					bgColor: "blue",
-				},
-			],
-		},
-		{
-			title: "프레임워크",
-			list: [
-				{
-					id: "2",
-					name: "React.js",
-					bgColor: "skyblue",
-				},
-				{
-					id: "3",
-					name: "React.js",
-					bgColor: "skyblue",
-				},
-				{
-					id: "4",
-					name: "React.js",
-					bgColor: "skyblue",
-				},
-			],
-		},
-	];
+	const [skillsList, setProjectList] = useState<Skills[]>();
+	const [isLoading, setLoading] = useState(true);
+
+	useEffect(() => {
+		fetch("/api/skills")
+			.then((res) => res.json())
+			.then((data) => {
+				setProjectList(data);
+				setLoading(false);
+			});
+	}, []);
+
+	if (isLoading) return <p>Loading...</p>;
+	if (!skillsList) return <p>No skills data</p>;
 	return (
 		<section>
 			<ul className="w-[420px] p-12">

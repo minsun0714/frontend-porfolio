@@ -1,5 +1,5 @@
 import Image from "next/image";
-import images from "@/assets";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -12,32 +12,23 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import { Project } from "@/models/projects";
 
 export const ProjectsList = () => {
-	const projectList = [
-		{
-			title: "Musicle",
-			date: "2024.11",
-			peerCount: 2,
-			isLeader: true,
-			description:
-				"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
-			skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
-			isVertical: true,
-			imageUrls: [images.thumbnail, images.thumbnail],
-		},
-		{
-			title: "Musicle",
-			date: "2024.11",
-			peerCount: 2,
-			isLeader: true,
-			description:
-				"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
-			skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
-			isVertical: false,
-			imageUrls: [images.signature, images.signature],
-		},
-	];
+	const [projectList, setProjectList] = useState<Project[]>();
+	const [isLoading, setLoading] = useState(true);
+
+	useEffect(() => {
+		fetch("/api/projects")
+			.then((res) => res.json())
+			.then((data) => {
+				setProjectList(data);
+				setLoading(false);
+			});
+	}, []);
+
+	if (isLoading) return <p>Loading...</p>;
+	if (!projectList) return <p>No profile data</p>;
 	return (
 		<section className="flex justify-center">
 			<ul className="text-black space-y-10">
