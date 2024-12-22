@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { FaLaptopCode } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
-import { Skills } from "@/models/skills";
+import { useSkillStore } from "@/store/skills";
 
 export const SkillsList = () => {
-	const [skillsList, setProjectList] = useState<Skills[]>();
+	const { skillsList, setId, setSkillsList } = useSkillStore();
 	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch("/api/skills")
 			.then((res) => res.json())
 			.then((data) => {
-				setProjectList(data);
+				setSkillsList(data);
 				setLoading(false);
 			});
-	}, []);
+	}, [setSkillsList]);
 
 	if (isLoading) return <p>Loading...</p>;
 	if (!skillsList) return <p>No skills data</p>;
@@ -31,7 +31,11 @@ export const SkillsList = () => {
 							<ul className="flex flex-row flex-wrap gap-2">
 								{skills.list.map((skill) => {
 									return (
-										<li key={skill.id} className="relative cursor-pointer">
+										<li
+											key={skill.id}
+											className="relative cursor-pointer"
+											onClick={() => setId(skill.id)}
+										>
 											<Badge variant={"secondary"}>{skill.name}</Badge>
 										</li>
 									);
