@@ -11,8 +11,17 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { Project } from "@/models/projects";
+import Example from "@/pages/example.mdx";
 
 export const ProjectsList = () => {
 	const [projectList, setProjectList] = useState<Project[]>();
@@ -53,7 +62,19 @@ export const ProjectsList = () => {
 									</p>
 								</div>
 								<div className="w-full flex justify-end">
-									<Button className="">Detail</Button>
+									<Dialog>
+										<DialogTrigger asChild>
+											<Button className="">Detail</Button>
+										</DialogTrigger>
+										<DialogContent className="bg-white">
+											<DialogHeader>
+												<DialogTitle>{project.title}</DialogTitle>
+												<DialogDescription className="bg-white max-h-[600px] overflow-y-scroll">
+													<Example />
+												</DialogDescription>
+											</DialogHeader>
+										</DialogContent>
+									</Dialog>
 								</div>
 							</div>
 							<Carousel className="flex flex-col justify-center invisible mobile:visible">
