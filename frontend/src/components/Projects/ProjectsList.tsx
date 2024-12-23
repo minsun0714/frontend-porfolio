@@ -1,7 +1,6 @@
 import { ProjectCarousel } from "./ProjectCarousel";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-
 import {
 	Dialog,
 	DialogContent,
@@ -10,6 +9,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
+import { markdownProjects } from "@/markdown";
 import { Project } from "@/models/projects";
 
 export const ProjectsList = () => {
@@ -59,7 +59,7 @@ export const ProjectsList = () => {
 											<DialogHeader>
 												<DialogTitle>{project.title}</DialogTitle>
 												<DialogDescription className="bg-white max-h-[600px] overflow-y-scroll">
-													hi
+													{markdownProjects[rowIdx].source}
 												</DialogDescription>
 											</DialogHeader>
 										</DialogContent>
