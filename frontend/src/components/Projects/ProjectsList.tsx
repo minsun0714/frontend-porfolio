@@ -1,16 +1,7 @@
-import Image from "next/image";
+import { ProjectCarousel } from "./ProjectCarousel";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselIndicator,
-	CarouselIndicatorContainer,
-	CarouselNext,
-	CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import {
 	Dialog,
 	DialogContent,
@@ -19,9 +10,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 import { Project } from "@/models/projects";
-import Example from "@/pages/example.mdx";
 
 export const ProjectsList = () => {
 	const [projectList, setProjectList] = useState<Project[]>();
@@ -70,51 +59,14 @@ export const ProjectsList = () => {
 											<DialogHeader>
 												<DialogTitle>{project.title}</DialogTitle>
 												<DialogDescription className="bg-white max-h-[600px] overflow-y-scroll">
-													<Example />
+													hi
 												</DialogDescription>
 											</DialogHeader>
 										</DialogContent>
 									</Dialog>
 								</div>
 							</div>
-							<Carousel className="flex flex-col justify-center invisible mobile:visible">
-								<CarouselContent className="">
-									{project.imageUrls.map((card, idx) => (
-										<CarouselItem
-											key={idx}
-											className={cn(project.isVertical ? "" : "")}
-										>
-											<Card>
-												<CardContent className="flex items-center justify-center p-2">
-													<Image
-														src={card}
-														alt="학습 자료 썸네일"
-														width={300}
-														height={400}
-														className="object-cover rounded-sm"
-													/>
-													{project.isVertical && (
-														<>
-															<CarouselPrevious />
-															<CarouselNext />
-														</>
-													)}
-												</CardContent>
-											</Card>
-										</CarouselItem>
-									))}
-								</CarouselContent>
-
-								<CarouselIndicatorContainer>
-									{project.imageUrls.map((_, idx) => {
-										return (
-											<li key={idx}>
-												<CarouselIndicator targetIdx={idx} />
-											</li>
-										);
-									})}
-								</CarouselIndicatorContainer>
-							</Carousel>
+							<ProjectCarousel project={project} />
 						</div>
 					);
 				})}

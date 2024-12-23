@@ -33,6 +33,6 @@ export const projectList: Project[] = [
 			"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
 		skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
 		isVertical: false,
-		imageUrls: [images.signature, images.signature],
+		imageUrls: [images.signature, images.signature, images.signature],
 	},
 ];
