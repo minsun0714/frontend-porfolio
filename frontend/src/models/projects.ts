@@ -1,6 +1,3 @@
-import { StaticImageData } from "next/image";
-import images from "@/assets";
-
 export interface Project {
 	title: string;
 	date: string;
@@ -9,7 +6,7 @@ export interface Project {
 	description: string;
 	skills: string[];
 	isVertical: boolean;
-	imageUrls: StaticImageData[];
+	imageUrls: string[];
 }
 
 export const projectList: Project[] = [
@@ -21,18 +18,48 @@ export const projectList: Project[] = [
 		description:
 			"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
 		skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
-		isVertical: true,
-		imageUrls: [images.thumbnail, images.thumbnail],
+		isVertical: false,
+		imageUrls: ["detail.png", "game.png", "login.png", "search.png"].map(
+			(fileName) => `/projects/rosewar2/${fileName}`,
+		),
 	},
 	{
-		title: "Musicle",
-		date: "2024.11",
-		peerCount: 2,
+		title: "장미전쟁 점수 계산 프로그램 버전2",
+		date: "2024.10-진행중",
+		peerCount: 1,
+		isLeader: false,
+		description:
+			"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
+		skills: ["Vue.js", "Typescript", "vue-query", "vercel"],
+		isVertical: true,
+		imageUrls: ["game.png", "search.png", "detail.png", "login.png"].map(
+			(fileName) => `/projects/rosewar2/${fileName}`,
+		),
+	},
+	{
+		title: "장미전쟁 점수 계산 프로그램 버전1",
+		date: "2023.04",
+		peerCount: 1,
+		isLeader: false,
+		description:
+			"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
+		skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
+		isVertical: true,
+		imageUrls: ["result.png", "game.png"].map(
+			(fileName) => `/projects/rosewar1/${fileName}`,
+		),
+	},
+	{
+		title: "Playpack",
+		date: "2023.07-2023-08",
+		peerCount: 6,
 		isLeader: true,
 		description:
 			"운동 음악 플레이리스트 및 기록 서비스.연간(운동 잔디), 월간(캘린더), 주간(칼로리 소모량 카드), 일(도넛 차트) 단위로 운동 시간 기록 파트 개발.",
 		skills: ["Vue.js", "Typescript", "vue-query", "chart.js", "vercel"],
 		isVertical: false,
-		imageUrls: [images.signature, images.signature, images.signature],
+		imageUrls: ["logo", "login", "reservation"].map(
+			(fileName) => `/projects/playpack/${fileName}.png`,
+		),
 	},
 ];
