@@ -50,15 +50,15 @@ export const ProjectsList = () => {
 										{project.skills.join(", ")}
 									</p>
 								</div>
-								<div className="w-full flex justify-end">
+								<div className="flex justify-end">
 									<Dialog>
 										<DialogTrigger asChild>
 											<Button className="">Detail</Button>
 										</DialogTrigger>
-										<DialogContent className="bg-white">
+										<DialogContent className="bg-white mobile:max-w-screen-mobile tablet:max-w-screen-tablet px-0">
 											<DialogHeader>
 												<DialogTitle>{project.title}</DialogTitle>
-												<DialogDescription className="bg-white max-h-[600px] overflow-y-scroll">
+												<DialogDescription className="bg-white max-h-[600px] mobile:max-w-screen-mobile tablet:max-w-screen-tablet overflow-y-scroll p-12">
 													{markdownProjects[rowIdx].source}
 												</DialogDescription>
 											</DialogHeader>
