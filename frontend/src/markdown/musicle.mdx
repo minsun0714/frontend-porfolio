@@ -1,1 +1,340 @@
-musicle
+import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { prism, darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+<section style={{ display: "flex", flexDirection: "column", rowGap: "20px", textAlign: "justify" }}>
+  <h1 className="text-xl font-bold">프로젝트 배경</h1>
+  <p>
+    운동이 관심사로 자리는 잡았지만 행동으로 옮기기에는 역부족인 사람들이 있어요.
+    사실은 저도 그런 사람이에요. 매일 장시간 앉아있으면서 늘 운동을 해야겠다고
+    생각은 많아지는데 숨쉬기 외에는 운동을 하지 않아요. 그래서 운동해야겠다는
+    생각만 하지 않고 실제 행동으로 이어지려면 무엇이 필요할지 고민해보았어요.
+  </p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/background1.png"
+	alt="배경 이미지 1"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+<Image
+	src="/projects/musicle/background2.png"
+	alt="배경 이미지 2"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<h2 className="text-lg font-bold">서비스 핵심 목표</h2>
+<ul>
+	<li>
+		<strong>운동을 일상의 한 부분으로 만드는 것</strong>
+	</li>
+	<li>
+		<strong>음악과 기록의 결합</strong>을 통해 운동의 긍정적인 경험을 강화
+	</li>
+</ul>
+
+{" "}
+
+<h2 className="text-lg font-bold">솔루션</h2>
+<ul>
+	<li>
+		<strong>맞춤형 운동 음악 플레이리스트:</strong> 좋아하는 음악을 들으며
+		운동을 즐길 수 있어요.
+	</li>
+	<li>
+		<strong>운동 기록 시각화:</strong> 연 단위, 월 단위, 주 단위로 기록을
+		시각화하여 <strong>보람을 극대화해요</strong>.
+	</li>
+</ul>
+
+{" "}
+
+<p>
+	<strong>
+		음악과 기록의 결합으로 운동을 자연스럽게 일상에 스며들게 하자!
+	</strong>
+</p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/combination.png"
+	alt="솔루션 이미지"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<h1 className="text-xl font-bold">기술 선택</h1>
+<p>
+	<strong>Vue.js, Typescript, Vue-Query, pinia, tailwindCSS</strong>
+	<strong>Spring Boot, mybatis</strong>
+</p>
+<p>
+	SSAFY에서는 이 프로젝트를 ‘1학기 관통 프로젝트’라고 불러요. 한 학기 동안 배운
+	기술을 복습하는 차원에서 진행한 프로젝트였기에 기술 선택에 어느 정도 강제성이
+	있는 상황이었어요. 이런 상황 속에서 주어진 기술을 최대한 활용하여 프로젝트에서
+	목표한 기능을 알맞게 구현하는 것이 관건이었어요.
+</p>
+
+{" "}
+
+<h1 className="text-xl font-bold">나의 역할</h1>
+<ul>
+	<li>
+		<strong>기록 기능 개발:</strong> 운동 기록 데이터를 연/월/주 단위로 시각화
+	</li>
+	<li>
+		<strong>인증 및 마이페이지 개발:</strong> 사용자 인증 기능 및 개인/공유
+		마이페이지 개발
+	</li>
+</ul>
+
+{" "}
+
+<h1 className="text-xl font-bold">기술적 성장 포인트</h1>
+<h2 className="text-xl font-bold">
+	상태 관리: 로컬과 글로벌로만 구분하던 이분법적 사고에서 벗어나다.
+</h2>
+<p>
+	마이페이지에 유저 간 서로 방문 가능하도록 구현해야 했어요. 마이페이지에 있는
+	yearly 운동 잔디를 서로 구경하면서 자극받을 수 있도록 하는 것이 저희 목표였기
+	때문이었어요.
+</p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/mypage1.png"
+	alt="Yearly 운동 잔디 화면"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+<Image
+	src="/projects/musicle/mypage2.png"
+	alt="다른 사람의 마이페이지 화면"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<p>
+	하지만 마이페이지를 개발할 때 나의 마이페이지와 다른 사람 마이페이지에서
+	대부분의 UI가 겹치고, 데이터가 유사하지만 다른 API를 호출해야 하는 구조적
+	특성으로 인해 상태 관리 방식에 대한 깊은 고민이 필요했어요.
+</p>
+
+{" "}
+
+<p>
+	마이페이지는 총 3개의 자식 컴포넌트를 포함하고 있고 트리가 깊어졌기에 로컬
+	상태 관리보다는 전역 상태 관리가 적합한 상황이라고 생각했어요.
+</p>
+
+{" "}
+
+<h3 className="text-lg font-bold">
+	1. 전역 store가 적합한 도구인지 의구심을 품어보다.
+</h3>
+<p>
+	제일 먼저 pinia와 같은 전역 store를 사용하는 것이었어요. 그런데 전역 store에서
+	데이터 fetching을 하는 게 과연 적합한 선택일까? 하는 의구심이 들었어요.
+	거부감의 근거가 무엇일지 곰곰이 생각을 해보았어요. 우선 store가 마치 허브처럼
+	데이터를 중앙에서 받아 컴포넌트 곳곳에 전파하는 역할을 하는 게 적합한지에 대해
+	생각을 해보았어요. store의 본질적 목적은 글로벌 상태 관리이고, 만약
+	마이페이지의 컴포넌트 트리 외부에서 접근 가능해야 하는 데이터들로 구성되어
+	있었다면 오히려 적합한 도구였을 것이라고 생각했어요.
+</p>
+
+{" "}
+
+<h3 className="text-lg font-bold">
+	2. 국지적 트리 형태고 데이터 흐름이 복잡해지므로 No
+</h3>
+<p>
+	하지만, 마이페이지 컴포넌트들은 뒤로 가기 버튼을 클릭하면 모두 언마운트되는
+	국지적 트리 형태였어요. 따라서 store가 컴포넌트 트리의 중앙에서 데이터를 받는
+	허브 역할을 하기에는 글로벌 상태 관리와는 거리가 있는 상황이라고 생각했어요.
+	무엇보다도 store를 거치는 것은 데이터의 흐름이 직관적이지 못했어요.
+</p>
+
+{" "}
+
+<h3 className="text-lg font-bold">3. Provider/Consumer 패턴 Yes</h3>
+<p>
+	이에 다음으로 Provider/Consumer 패턴을 떠올렸어요. 마이페이지 컴포넌트 트리의
+	최상위에서 데이터를 일괄적으로 fetch하고 Provide해서 하위 컴포넌트에서
+	Consume하는 형태라면 컴포넌트가 마운트되어 있을 때에 한해서만 컴포넌트 간
+	데이터 공유를 할 테니 목적에 더욱 적합한 도구라는 생각이 들었어요. 무엇보다도
+	store보다 데이터의 흐름이 직관적이었어요.
+</p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/provider.png"
+	alt="Provider/Consumer 패턴"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<h3 className="text-lg font-bold">
+	✏️ Vue의 Provider/inject와 React Context Provider의 차이
+</h3>
+<p>
+	React에서는 Provider의 데이터가 변경되면 하위 컴포넌트가 모두 리렌더링되지만,
+	Vue.js에서는 Provider의 데이터를 inject하는 컴포넌트만 리렌더링 돼요. 이번
+	프로젝트에서는 어차피 모든 하위 컴포넌트에서 데이터를 inject해야 했기 때문에
+	결국 모두 리렌더링되었을 테지만, 만약 데이터를 주입받을 필요가 없는 하위
+	컴포넌트가 존재하는 상황이었다면, 불필요한 리렌더링을 막을 수 있을 테니 이점이
+	더 많았을 것이라고 생각이 들었어요.
+</p>
+
+{" "}
+
+<h3 className="text-lg font-bold">✅ 고민 과정 요약</h3>
+<ul>
+	<li>
+		<strong>Pinia (글로벌 상태 관리):</strong> 마이페이지 데이터는 글로벌 상태로
+		관리하기엔 범위가 너무 국지적이었고, 데이터 흐름이 직관적이지 않았습니다.
+	</li>
+	<li>
+		<strong>Provider/Consumer 패턴 (로컬 상태 공유):</strong> 컴포넌트 트리
+		최상위에서 데이터를 제공하고 하위 컴포넌트에서 필요에 따라 소비하도록
+		구현했습니다.
+	</li>
+</ul>
+
+{" "}
+
+<p>
+	해당 고민을 계기로 이전까지는 상태 관리를 단순히 글로벌과 로컬로 이분법적으로
+	나누었었는데, 굉장히 얕은 접근이었다는 생각이 들었어요. 컴포넌트 간 데이터
+	공유가 필요할 때에는 데이터의 흐름의 직관성, 생명주기, 그리고 해당 데이터를
+	어느 범위까지 사용하는지에 대한 고려가 동반되어야 함을 배우게 되었어요.
+</p>
+
+{" "}
+
+<h3 className="text-lg font-bold">Provider 사용을 모두가 알게 하자!</h3>
+<p>
+	Provider의 도입을 팀원에게 미처 알리지 못해서 사고가 발생하는 일도 있었어요.
+	마이페이지에 있는 내가 좋아요한 영상 컴포넌트는 음악 플레이리스트 파트 개발을
+	담당하는 팀원분과 마이페이지 개발을 담당하는 저 중 누가 개발할지 명확하게
+	논의되지 않은 상황이었어요. 이 때 팀원분이 Provider의 도입을 알지 못한 채 해당
+	하위 컴포넌트에 데이터 fetching 코드를 추가해서 그제서야 수정을 해야 하는
+	상황이 발생한 것이었어요.
+</p>
+<p>
+	**Provider와 같은 패턴을 사용할 때에는 반드시 팀 전체에게 알려야겠다는
+	깨달음을 얻었어요.** 만약 팀 전체 인원이 많아진다면 반드시 문서화하고 구두로도
+	알려야겠다는 생각이 들었어요.
+</p>
+
+{" "}
+
+{" "}
+
+<h2 className="text-lg font-bold">S3 도입, 과연 늘 최적의 대안이 될 것인가</h2>
+<p>
+	weekly 운동 기록 카드는 총 3개였어요. 저번주 대비 이번주 운동시간 변화, 이번주
+	칼로리 소모량 변화, 이번주 없애버린 지방 변화 이렇게 3가지 카드 컴포넌트를
+	구현해야 했어요.
+</p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/exercise-card.png"
+	alt="weekly 운동 기록 카드"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<p>
+	1차적으로 고민했던 부분은 카드 재사용 여부였어요. 아이콘도 모두 다르고
+	운동시간, 칼로리, 지방 연소량의 단위 등이 모두 달라 재사용을 한다고 해도
+	어떻게 해야할지에 대한 갈피를 처음에 잡지 못했어요.
+</p>
+<p>
+	그러던 중 <strong>S3라는 대안</strong>을 찾게 되었어요. API에서 모든 데이터를
+	내려주면 Icon 이미지 배열을 프론트엔드 로컬에서 만들 필요도 없고, 카드 개수가
+	향후 확장되더라도 코드를 변경할 일이 없어 <strong>확장성과 재사용성</strong>
+	측면에서 긍정적일 것이라는 생각이 들었어요.
+</p>
+<p>
+	그렇게 해서 처음으로 <strong>백엔드에서 이미지 S3 업로드</strong>에 도전하여
+	성공했고, 프론트엔드에서는 의도한대로 하드코딩 없이 컴포넌트를 재사용할 수
+	있게 되었어요.
+</p>
+
+{" "}
+
+<Image
+	src="/projects/musicle/S3.png"
+	alt="S3 도입 예시"
+	width={500}
+	height={300}
+	layout="intrinsic"
+/>
+
+{" "}
+
+<SyntaxHighlighter language="tsx" style={prism}>
+	{`<img :src="cardData?.cardIconUrl" alt="icon" class="h-12 w-12" />`}
+</SyntaxHighlighter>
+
+{" "}
+
+<p>
+	프론트엔드에서는 <strong>cardIconUrl</strong>만 접근하여 렌더링하면 되기
+	때문에, 향후 카드 개수가 확장되어도 코드를 변경할 일이 없어졌어요.
+</p>
+
+{" "}
+
+<p>
+	그럼에도 불구하고 프로젝트가 끝난 지금 다시 회고해보았을 때 앞으로도 비슷한
+	상황이 있다면 <strong>S3를 반드시 사용할 것인가?</strong>라고 누가 묻는다면
+	<strong>"상황에 따라 다르다"</strong>라는 대답을 할 것 같아요. 구체적으로는
+	전체적인 <strong>이점과 비용의 크기</strong>를 비교해야 한다는 점을 들 거예요.
+</p>
+
+{" "}
+
+<ul>
+	<li>
+		<strong>이점:</strong> 컴포넌트 재사용성과 확장성 증진
+	</li>
+	<li>
+		<strong>비용:</strong> 백엔드 단에서 처리해야 할 일이 많아짐
+	</li>
+</ul>
+
+  <p>
+    결과적으로 <strong>컴포넌트 재사용성의 비용</strong>이 발생했고 무시할 수 없는
+    규모라고 느껴졌어요. 그래서 컴포넌트 하나의 확장성만 보는 것은 좁은 시야라고
+    느끼게 되었어요. 기술적 선택을 할 때 시야를 넓혀서 프로젝트 전체적인 이점과
+    비용을 비교하는 게 더 좋겠다는 <strong>배움</strong>을 얻었어요. 다른 사람이
+    아닌 제가 해당 기능의 백엔드 개발을 하고 있을 때 이러한 교훈을 얻게 된 건
+    <strong>행운</strong>이라고 생각해요.
+  </p>
+</section>

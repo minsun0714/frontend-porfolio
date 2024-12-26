@@ -8,6 +8,7 @@ import {
 	CarouselIndicatorContainer,
 } from "@/components/ui/carousel";
 import { useSkillStore } from "@/store/skills";
+import Link from "next/link";
 
 export const StudyMaterials = () => {
 	const { id, studyMaterialCards } = useSkillStore();
@@ -18,7 +19,7 @@ export const StudyMaterials = () => {
 				<CarouselContent>
 					{studyMaterialCards()?.map((card, idx) => (
 						<CarouselItem key={id + idx}>
-							<div className="">
+							<Link href={card.url} target="_blank">
 								<Card>
 									<CardContent className="flex flex-col items-center justify-center">
 										<div className="h-52 w-full">
@@ -35,7 +36,7 @@ export const StudyMaterials = () => {
 										</p>
 									</CardContent>
 								</Card>
-							</div>
+							</Link>
 						</CarouselItem>
 					))}
 				</CarouselContent>

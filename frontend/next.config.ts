@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
 	reactStrictMode: true,
 	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 	images: {
-		domains: ["prod-files-secure.s3.us-west-2.amazonaws.com"]
-	}
+		remotePatterns: [],
+	},
 };
 
 export default withMDX(nextConfig);
