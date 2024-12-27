@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { useSkillStore } from "@/store/skills";
 
 export const SkillsList = () => {
-	const { skillsList, setId, setSkillsList } = useSkillStore();
+	const { skillsList, setId, setSkillsList, id } = useSkillStore();
 	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -36,7 +36,11 @@ export const SkillsList = () => {
 											className="relative cursor-pointer"
 											onClick={() => setId(skill.id)}
 										>
-											<Badge variant={"secondary"}>{skill.name}</Badge>
+											<Badge
+												variant={skill.id === id ? "secondary" : "outline"}
+											>
+												{skill.name}
+											</Badge>
 										</li>
 									);
 								})}
