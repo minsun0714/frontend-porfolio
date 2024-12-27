@@ -55,12 +55,12 @@ export const skillsList: Skills[] = [
 				materialUrlList: [
 					{
 						title: "구조적 타이핑",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/structural-typing.png",
 						url: "https://velog.io/@jasmine0714/structural-typing",
 					},
 					{
 						title: "enum vs const enum vs const assertions",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/enum.png",
 						url: "https://velog.io/@jasmine0714/enum",
 					},
 				],
@@ -72,12 +72,12 @@ export const skillsList: Skills[] = [
 				materialUrlList: [
 					{
 						title: "flex-grow, flex-shrink",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/flex.png",
 						url: "https://velog.io/@jasmine0714/flex-grow-vs-flex-shrink",
 					},
 					{
 						title: "명시도",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/specificity.png",
 						url: "https://velog.io/@jasmine0714/CSS-specificity",
 					},
 				],
@@ -103,11 +103,6 @@ export const skillsList: Skills[] = [
 						url: "https://velog.io/@jasmine0714/error-boundary",
 					},
 					{
-						title: "server action",
-						thumbnailImg: "",
-						url: "https://velog.io/@jasmine0714/react-server-action",
-					},
-					{
 						title: "forwardRef",
 						thumbnailImg: "",
 						url: "https://velog.io/@jasmine0714/forwardRef",
@@ -130,7 +125,13 @@ export const skillsList: Skills[] = [
 				id: 5,
 				name: "Vue.js",
 				bgColor: "skyblue",
-				materialUrlList: [],
+				materialUrlList: [
+					{
+						title: "react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
+						thumbnailImg: "/skills/query.png",
+						url: "https://velog.io/@jasmine0714/set-query-data",
+					},
+				],
 			},
 		],
 	},
@@ -141,7 +142,13 @@ export const skillsList: Skills[] = [
 				id: 6,
 				name: "Tanstack Query",
 				bgColor: "skyblue",
-				materialUrlList: [],
+				materialUrlList: [
+					{
+						title: "react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
+						thumbnailImg: "/skills/query.png",
+						url: "https://velog.io/@jasmine0714/set-query-data",
+					},
+				],
 			},
 		],
 	},
