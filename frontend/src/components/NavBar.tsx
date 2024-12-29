@@ -74,7 +74,7 @@ export const Navbar = () => {
 			}`}
 		>
 			<div
-				className={`absolute top-5 w-screen flex justify-center transition-opacity duration-300 ${
+				className={`absolute top-5 w-screen flex justify-center transition-opacity duration-300 cursor-pointer ${
 					showHeader ? "opacity-100" : "opacity-0"
 				}`}
 				onClick={() => {
