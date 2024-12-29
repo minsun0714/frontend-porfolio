@@ -13,7 +13,7 @@ export const Main = () => {
 		},
 	];
 	return (
-		<section className="relative flex justify-center items-center h-screen w-screen">
+		<section id="main-section" className="relative flex justify-center items-center h-screen w-screen">
 			<Image
 				src="/main/image.png"
 				alt="메인 화면"
