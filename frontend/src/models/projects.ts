@@ -49,16 +49,4 @@ export const projectList: Project[] = [
 			(fileName) => `/projects/rosewar1/${fileName}`,
 		),
 	},
-	{
-		title: "Playpack",
-		date: "2023.07-2023-08",
-		peerCount: 6,
-		isLeader: true,
-		description: "지역 주민들과 여행 용품을 렌탈할 수 있는 플랫폼 서비스 개발",
-		skills: ["React.js", "Typescript", "redux-toolkit", "React-Query"],
-		isVertical: false,
-		imageUrls: ["logo", "login", "reservation"].map(
-			(fileName) => `/projects/playpack/${fileName}.png`,
-		),
-	},
 ];
