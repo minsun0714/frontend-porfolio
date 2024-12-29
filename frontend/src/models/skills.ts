@@ -93,19 +93,14 @@ export const skillsList: Skills[] = [
 				bgColor: "skyblue",
 				materialUrlList: [
 					{
-						title: "react 배치 처리",
-						thumbnailImg: "",
-						url: "https://velog.io/@jasmine0714/carousel",
+						title: "상태 관리 메커니즘에 기반하여 알아보는 state 업데이트 시 주의할 점과 이유",
+						thumbnailImg: "/skills/state.png",
+						url: "https://velog.io/@jasmine0714/state-update",
 					},
 					{
 						title: "error-boundary",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/errorboundary.png",
 						url: "https://velog.io/@jasmine0714/error-boundary",
-					},
-					{
-						title: "forwardRef",
-						thumbnailImg: "",
-						url: "https://velog.io/@jasmine0714/forwardRef",
 					},
 				],
 			},
@@ -127,7 +122,8 @@ export const skillsList: Skills[] = [
 				bgColor: "skyblue",
 				materialUrlList: [
 					{
-						title: "react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
+						title:
+							"react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
 						thumbnailImg: "/skills/query.png",
 						url: "https://velog.io/@jasmine0714/set-query-data",
 					},
@@ -144,7 +140,8 @@ export const skillsList: Skills[] = [
 				bgColor: "skyblue",
 				materialUrlList: [
 					{
-						title: "react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
+						title:
+							"react 사용할 때 공식처럼 생각했던 것이 깨지면서 배운 vue-query와 react-query의 동작 원리 비교",
 						thumbnailImg: "/skills/query.png",
 						url: "https://velog.io/@jasmine0714/set-query-data",
 					},

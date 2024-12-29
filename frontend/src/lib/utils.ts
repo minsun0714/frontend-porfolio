@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
+import * as FaIcons from "react-icons/fa";
 import * as GoIcons from "react-icons/go";
 import { IconType } from "react-icons/lib";
 import * as SiIcons from "react-icons/si";
@@ -19,7 +21,9 @@ export const getIconComponent = (iconName: string): IconType | null => {
 	const icon =
 		(BsIcons[iconName as keyof typeof BsIcons] as IconType) ||
 		(GoIcons[iconName as keyof typeof GoIcons] as IconType) ||
-		(SiIcons[iconName as keyof typeof SiIcons] as IconType);
+		(SiIcons[iconName as keyof typeof SiIcons] as IconType) ||
+		(FaIcons[iconName as keyof typeof FaIcons] as IconType) ||
+		(AiIcons[iconName as keyof typeof AiIcons] as IconType);
 
 	return icon || null;
 };
