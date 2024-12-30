@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
 	images: {
 		remotePatterns: [],
 	},
+	transpilePackages: ["react-syntax-highlighter"],
 };
 
 export default withMDX(nextConfig);
