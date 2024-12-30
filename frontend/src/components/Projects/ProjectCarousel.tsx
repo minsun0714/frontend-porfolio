@@ -6,8 +6,6 @@ import {
 	CarouselItem,
 	CarouselIndicator,
 	CarouselIndicatorContainer,
-	CarouselNext,
-	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { Project } from "@/models/projects";
@@ -27,12 +25,6 @@ export const ProjectCarousel = ({ project }: { project: Project }) => {
 									height={400}
 									className="object-cover rounded-sm"
 								/>
-								{project.isVertical && (
-									<>
-										<CarouselPrevious />
-										<CarouselNext />
-									</>
-								)}
 							</CardContent>
 						</Card>
 					</CarouselItem>
