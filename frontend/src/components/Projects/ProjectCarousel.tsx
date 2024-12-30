@@ -21,8 +21,8 @@ export const ProjectCarousel = ({ project }: { project: Project }) => {
 								<Image
 									src={card}
 									alt="학습 자료 썸네일"
-									width={300}
-									height={400}
+									width={800}
+									height={200}
 									className="object-cover rounded-sm"
 								/>
 							</CardContent>
