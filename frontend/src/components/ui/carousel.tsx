@@ -290,9 +290,9 @@ const CarouselIndicator = React.forwardRef<
 			onClick={() => scrollTo(currentIdx, targetIdx)}
 			{...props}
 			className={cn(
-				"flex items-center w-4 h-4 border border-gray-400 rounded-full bg-white",
+				"flex items-center w-4 h-4 border rounded-full bg-gray-300",
 				currentIdx === targetIdx &&
-					"h-6 w-6 bg-blue-600 border border-blue-500",
+					"bg-blue-600 border border-blue-500",
 			)}
 		/>
 	);
