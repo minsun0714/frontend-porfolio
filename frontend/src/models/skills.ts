@@ -1,6 +1,6 @@
 type SkillName =
 	| "언어"
-	| "FE 프레임워크"
+	| "프레임워크 및 라이브러리"
 	| "서버 데이터 동기화"
 	| "전역 상태 관리";
 export type MaterialCard = {
@@ -8,8 +8,10 @@ export type MaterialCard = {
 	thumbnailImg: string;
 	url: string;
 };
+
 export interface Skills {
 	title: SkillName;
+	icon: "FaLaptopCode" | "ImLibrary" | "LuServerCrash" | "RiGlobalLine"
 	list: {
 		id: number;
 		name: string;
@@ -20,6 +22,7 @@ export interface Skills {
 export const skillsList: Skills[] = [
 	{
 		title: "언어",
+		icon: "FaLaptopCode",
 		list: [
 			{
 				id: 0,
@@ -85,7 +88,8 @@ export const skillsList: Skills[] = [
 		],
 	},
 	{
-		title: "FE 프레임워크",
+		title: "프레임워크 및 라이브러리",
+		icon: "ImLibrary",
 		list: [
 			{
 				id: 3,
@@ -133,6 +137,7 @@ export const skillsList: Skills[] = [
 	},
 	{
 		title: "서버 데이터 동기화",
+		icon: "LuServerCrash",
 		list: [
 			{
 				id: 6,
@@ -151,6 +156,7 @@ export const skillsList: Skills[] = [
 	},
 	{
 		title: "전역 상태 관리",
+		icon: "RiGlobalLine",
 		list: [
 			{
 				id: 7,

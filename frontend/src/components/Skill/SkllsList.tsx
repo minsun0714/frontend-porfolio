@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaLaptopCode } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
+import { getIconComponent } from "@/lib/utils";
 import { useSkillStore } from "@/store/skills";
 
 export const SkillsList = () => {
@@ -22,10 +22,11 @@ export const SkillsList = () => {
 		<section className="flex justify-start mobile:w-full">
 			<ul className="pl-8 mobile:pl-8 tablet:pl-6">
 				{skillsList.map((skills, rowIdx) => {
+					const Icon = getIconComponent(skills.icon) || (() => null);
 					return (
 						<li key={rowIdx} className="grid laptop:grid-cols-2 max-w-96 gap-2">
 							<div className="flex flex-row items-start text-xl gap-2 py-2">
-								<FaLaptopCode size={24}/>
+								<Icon size={24} />
 								<h2>{skills.title}</h2>
 							</div>
 							<ul className="flex flex-row flex-wrap gap-2 pb-6">
