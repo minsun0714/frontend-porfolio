@@ -111,7 +111,7 @@ export const skillsList: Skills[] = [
 				materialUrlList: [
 					{
 						title: "optional catch-all segment",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/routing.png",
 						url: "https://velog.io/@jasmine0714/dynamic-routing",
 					},
 				],
@@ -159,21 +159,15 @@ export const skillsList: Skills[] = [
 				materialUrlList: [
 					{
 						title: "Redux의 데이터 흐름",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/flux.png",
 						url: "https://velog.io/@jasmine0714/flux",
 					},
 					{
 						title: "Redux를 처음 사용했던 순간",
-						thumbnailImg: "",
+						thumbnailImg: "/skills/redux.png",
 						url: "https://velog.io/@jasmine0714/toy-project-%EB%8B%AC%EB%A0%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0",
 					},
 				],
-			},
-			{
-				id: 8,
-				name: "Redux-toolkit",
-				bgColor: "skyblue",
-				materialUrlList: [],
 			},
 		],
 	},
