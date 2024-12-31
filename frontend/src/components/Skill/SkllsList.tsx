@@ -19,16 +19,16 @@ export const SkillsList = () => {
 	if (isLoading) return <p>Loading...</p>;
 	if (!skillsList) return <p>No skills data</p>;
 	return (
-		<section>
-			<ul className="">
+		<section className="flex justify-start mobile:w-full">
+			<ul className="pl-8 mobile:pl-8 tablet:pl-6">
 				{skillsList.map((skills, rowIdx) => {
 					return (
 						<li key={rowIdx} className="grid laptop:grid-cols-2 max-w-96 gap-2">
-							<div className="flex flex-row items-start text-xl gap-2 py-6">
+							<div className="flex flex-row items-start text-xl gap-2 py-2">
 								<FaLaptopCode size={24}/>
 								<h2>{skills.title}</h2>
 							</div>
-							<ul className="flex flex-row flex-wrap gap-2 py-4">
+							<ul className="flex flex-row flex-wrap gap-2 pb-6">
 								{skills.list.map((skill) => {
 									return (
 										<li
