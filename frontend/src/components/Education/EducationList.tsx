@@ -19,12 +19,12 @@ export const EducationList = () => {
 	if (!educationList) return <p>No Education data</p>;
 	return (
 		<section>
-			<ul className="py-24">
+			<ul className="py-12 flex flex-col justify-center">
 				{educationList.map((education, idx) => {
 					return (
 						<li
 							key={idx}
-							className="flex flex-col items-center text-black py-3"
+							className="flex flex-col justify-center items-center text-black py-3"
 						>
 							<div className="text-black font-bold py-12">
 								<h2 className="text-3xl">{education.title}</h2>
@@ -32,7 +32,7 @@ export const EducationList = () => {
 									{education.startDate}-{education.endDate}
 								</h3>
 							</div>
-							<ul className="grid grid-cols-1 laptop:grid-cols-3 gap-12 p-24 laptop:max-w-[1000px] laptop:p-24">
+							<ul className="grid grid-cols-1 laptop:grid-cols-3 gap-12 text-justify laptop:max-w-[1000px] laptop:p-24">
 								{education.list.map((achievement) => {
 									const Icon = getIconComponent(achievement.icon);
 									return (
@@ -43,9 +43,9 @@ export const EducationList = () => {
 											<div className="flex justify-center">
 												{Icon && <Icon size={200} />}
 											</div>
-											<div className="flex flex-col items-start gap-y-5">
+											<div className="flex flex-col items-start gap-y-5 px-12 tablet:px-0">
 												<h3 className="font-medium">{achievement.name}</h3>
-												<p className="text-left text-base">
+												<p className="text-left text-lg">
 													{achievement.description}
 												</p>
 											</div>
