@@ -40,7 +40,7 @@ export const StudyMaterials = () => {
 												className="object-cover w-full h-44 rounded-none"
 											/>
 										</div>
-										<p className="text-sm font-semibold p-6 border-t border-t-gray-400">
+										<p className="flex items-center text-sm font-semibold p-6 min-h-28">
 											{card.title}
 										</p>
 									</CardContent>
