@@ -17,7 +17,7 @@ export const StudyMaterials = () => {
 
 	return (
 		<section>
-			<Carousel className="w-full max-w-xs">
+			<Carousel className="max-w-xs p-4 tablet:w-full tablet:max-w-sm">
 				<CarouselContent>
 					{studyMaterialCards()?.map((card, idx) => (
 						<CarouselItem key={id + idx}>

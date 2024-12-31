@@ -20,15 +20,15 @@ export const SkillsList = () => {
 	if (!skillsList) return <p>No skills data</p>;
 	return (
 		<section>
-			<ul className="p-12">
+			<ul className="">
 				{skillsList.map((skills, rowIdx) => {
 					return (
-						<li key={rowIdx} className="grid laptop:grid-cols-2 max-w-96">
-							<div className="flex flex-row items-start gap-2 pt-6">
-								<FaLaptopCode />
+						<li key={rowIdx} className="grid laptop:grid-cols-2 max-w-96 gap-2">
+							<div className="flex flex-row items-start text-xl gap-2 py-6">
+								<FaLaptopCode size={24}/>
 								<h2>{skills.title}</h2>
 							</div>
-							<ul className="flex flex-row flex-wrap gap-2  py-4">
+							<ul className="flex flex-row flex-wrap gap-2 py-4">
 								{skills.list.map((skill) => {
 									return (
 										<li
